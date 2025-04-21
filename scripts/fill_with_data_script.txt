@@ -1,15 +1,19 @@
+// Przelaczenie na schemat albo jego utworzenie
 use streetball-db
 
+// Usuniecie kolekci
 db.users.drop()
 db.courts.drop()
 db.games.drop()
 db.notifications.drop()
 
+// utworzenie kolekcji
 db.createCollection("users")
 db.createCollection("courts")
 db.createCollection("games")
 db.createCollection("notifications")
 
+// Dodawanie dokumentow do kolekcji users
 db.users.insertMany([
   {
     username: "adamkoszy",
@@ -98,11 +102,11 @@ db.users.insertMany([
   }
 ]);
 
-
+// Zapamietywanie ID userow do latwiejszej pracy
 const users = db.users.find().toArray();
 const userIds = users.map(user => user._id);
 
-
+// Dodawanei danych do kolekcji courts
 db.courts.insertMany([
   {
     name: "Park Jordana",
@@ -310,11 +314,12 @@ db.courts.insertMany([
 ]);
 
 
-
+// Zapamietywanie ID courts do latwiejszej pracy
 const courts = db.courts.find().toArray();
 const courtIds = courts.map(court => court._id);
 
-
+// Utworzenie dokumentow do kolecji games
+// Utworzenie zmiennych dla latwiejszego dodawanai danych
 const now = new Date();
 const tomorrow = new Date();
 tomorrow.setDate(now.getDate() + 1);
@@ -423,12 +428,12 @@ db.games.insertMany([
   }
 ]);
 
-
+// Zapamietywanie ID games do latwiejszej pracy
 const games = db.games.find().toArray();
 const gameIds = games.map(game => game._id);
 
 
-
+// Dodawanie danych o grach do userow (zapis userow na gry)
 db.users.updateOne(
   { _id: userIds[0] },
   { 
@@ -480,7 +485,7 @@ db.users.updateOne(
 );
 
 
-
+// Utworzenei dokumentow dla kolekcji notifications
 db.notifications.insertMany([
   {
     user: userIds[0],
