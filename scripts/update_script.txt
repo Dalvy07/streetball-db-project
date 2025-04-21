@@ -1,0 +1,61 @@
+// Zmiana godzin pracy, dodanie oswiatlenia i zmiana opisu
+db.courts.updateOne(
+  { name: "Park Jordana" },
+  {
+    $set: {
+      "features.lighting": true,
+      "workingHours.friday.open": "07:00",
+      "workingHours.friday.close": "23:00",
+      "description": "Odnowiony park z profesjonalnym boiskiem do koszykówki, doskonałą nawierzchnią i nowoczesnym oświetleniem LED"
+    }
+  }
+)
+
+// Zwiekszenie oceny boiska i dodanie nowego review
+const userId = db.users.findOne({ username: "piotr_pro" })._id;
+
+db.courts.updateOne(
+  { name: "Szkoła Podstawowa nr 45" },
+  {
+    $inc: { rating: 0.2 },
+    $push: {
+      reviews: {
+        user: userId,
+        text: "Po remoncie nawierzchnia jest znacznie lepsza, polecam na treningi!",
+        rating: 5,
+        date: new Date()
+      }
+    }
+  }
+)
+
+// Zmiana statusu gry oraz usuniecie gracza
+db.games.updateOne(
+  { sportType: "streetball", format: "3x3", status: "scheduled" },
+  {
+    $set: { status: "in_progress" },
+    $pull: {
+      currentPlayers: { 
+        user: db.users.findOne({ username: "kasia_basket" })._id 
+      }
+    }
+  }
+)
+
+// Dodanie nowego sportu oraz zmiana nazwy pola
+db.courts.updateOne(
+  { name: "Centrum Młodzieżowe" },
+  {
+    $addToSet: { sportTypes: "football" },
+    $rename: { "features.covered": "features.isIndoor" }
+  }
+)
+
+// Zmiana ustawien notification dla wszystkich userow i zwiekszenia czasu notification
+db.users.updateMany(
+  { "notifications.reminderTime": { $lt: 60 } },
+  {
+    $set: { "notifications.push": true },
+    $inc: { "notifications.reminderTime": 15 }
+  }
+)

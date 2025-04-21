@@ -1,0 +1,239 @@
+[{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d4"
+  },
+  "court": {
+    "$oid": "68066af3615f85b790f651cf"
+  },
+  "creator": {
+    "$oid": "68066af3615f85b790f651ca"
+  },
+  "sportType": "streetball",
+  "dateTime": {
+    "$date": "2025-04-22T15:57:39.244Z"
+  },
+  "duration": 90,
+  "format": "3x3",
+  "maxPlayers": 12,
+  "currentPlayers": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ca"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cb"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cc"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    }
+  ],
+  "status": "in_progress",
+  "description": "Cotygodniowa gra dla amatorów. Gramy 3 na 3, zapraszamy wszystkich!",
+  "skillLevel": "intermediate",
+  "isPrivate": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d5"
+  },
+  "court": {
+    "$oid": "68066af3615f85b790f651d0"
+  },
+  "creator": {
+    "$oid": "68066af3615f85b790f651cb"
+  },
+  "sportType": "basketball",
+  "dateTime": {
+    "$date": "2025-04-23T15:57:39.244Z"
+  },
+  "duration": 120,
+  "format": "5x5",
+  "maxPlayers": 15,
+  "currentPlayers": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cb"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cd"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ce"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    }
+  ],
+  "status": "scheduled",
+  "description": "Pełnowymiarowa gra 5 na 5 na krytym boisku. Zapraszamy!",
+  "skillLevel": "advanced",
+  "isPrivate": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d6"
+  },
+  "court": {
+    "$oid": "68066af3615f85b790f651d1"
+  },
+  "creator": {
+    "$oid": "68066af3615f85b790f651cc"
+  },
+  "sportType": "streetball",
+  "dateTime": {
+    "$date": "2025-04-22T15:57:39.244Z"
+  },
+  "duration": 60,
+  "format": "2x2",
+  "maxPlayers": 8,
+  "currentPlayers": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cc"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ca"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    }
+  ],
+  "status": "scheduled",
+  "description": "Trening dla początkujących. Format 2 na 2 dla lepszej nauki podstaw.",
+  "skillLevel": "beginner",
+  "isPrivate": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d7"
+  },
+  "court": {
+    "$oid": "68066af3615f85b790f651d2"
+  },
+  "creator": {
+    "$oid": "68066af3615f85b790f651cd"
+  },
+  "sportType": "streetball",
+  "dateTime": {
+    "$date": "2025-04-28T15:57:39.244Z"
+  },
+  "duration": 120,
+  "format": "3x3",
+  "maxPlayers": 12,
+  "currentPlayers": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cd"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    }
+  ],
+  "status": "scheduled",
+  "description": "Gra na nowym boisku z gumową nawierzchnią. Format 3x3, zapraszamy wszystkich chętnych.",
+  "skillLevel": "any",
+  "isPrivate": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d8"
+  },
+  "court": {
+    "$oid": "68066af3615f85b790f651d3"
+  },
+  "creator": {
+    "$oid": "68066af3615f85b790f651ce"
+  },
+  "sportType": "basketball",
+  "dateTime": {
+    "$date": "2025-04-28T15:57:39.244Z"
+  },
+  "duration": 90,
+  "format": "5x5",
+  "maxPlayers": 12,
+  "currentPlayers": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ce"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cb"
+      },
+      "joinedAt": {
+        "$date": "2025-04-21T15:57:39.244Z"
+      }
+    }
+  ],
+  "status": "scheduled",
+  "description": "Prywatna gra dla zaawansowanych graczy. Potrzebny kod zaproszenia.",
+  "skillLevel": "advanced",
+  "isPrivate": true,
+  "inviteCode": "KOSZ123",
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+}]

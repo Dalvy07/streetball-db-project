@@ -1,0 +1,434 @@
+[{
+  "_id": {
+    "$oid": "68066af3615f85b790f651cf"
+  },
+  "name": "Park Jordana",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      21.012228,
+      52.229676
+    ],
+    "address": "ul. Parkowa 15, Warszawa"
+  },
+  "sportTypes": [
+    "streetball",
+    "basketball"
+  ],
+  "photos": [
+    "jordan_park_1.jpg",
+    "jordan_park_2.jpg"
+  ],
+  "description": "Odnowiony park z profesjonalnym boiskiem do koszykówki, doskonałą nawierzchnią i nowoczesnym oświetleniem LED",
+  "features": {
+    "covered": false,
+    "lighting": true,
+    "surface": "asphalt",
+    "changingRooms": false
+  },
+  "workingHours": {
+    "monday": {
+      "open": "08:00",
+      "close": "22:00"
+    },
+    "tuesday": {
+      "open": "08:00",
+      "close": "22:00"
+    },
+    "wednesday": {
+      "open": "08:00",
+      "close": "22:00"
+    },
+    "thursday": {
+      "open": "08:00",
+      "close": "22:00"
+    },
+    "friday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "saturday": {
+      "open": "09:00",
+      "close": "23:00"
+    },
+    "sunday": {
+      "open": "09:00",
+      "close": "23:00"
+    }
+  },
+  "rating": 4.5,
+  "reviews": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ca"
+      },
+      "text": "Świetne boisko, dobra nawierzchnia",
+      "rating": 5,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cb"
+      },
+      "text": "Wieczorem dobre oświetlenie, można grać do późna",
+      "rating": 4,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d0"
+  },
+  "name": "Kompleks Sportowy 'Warszawa'",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      21.025123,
+      52.243541
+    ],
+    "address": "ul. Sportowa 10, Warszawa"
+  },
+  "sportTypes": [
+    "streetball",
+    "basketball",
+    "volleyball"
+  ],
+  "photos": [
+    "warsaw_complex_1.jpg",
+    "warsaw_complex_2.jpg"
+  ],
+  "description": "Kryty kompleks sportowy z kilkoma boiskami do koszykówki",
+  "features": {
+    "covered": true,
+    "lighting": true,
+    "surface": "wood",
+    "changingRooms": true
+  },
+  "workingHours": {
+    "monday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "tuesday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "wednesday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "thursday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "friday": {
+      "open": "07:00",
+      "close": "23:00"
+    },
+    "saturday": {
+      "open": "08:00",
+      "close": "22:00"
+    },
+    "sunday": {
+      "open": "08:00",
+      "close": "22:00"
+    }
+  },
+  "rating": 4.8,
+  "reviews": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cc"
+      },
+      "text": "Najlepsze boisko w mieście. Drewniana podłoga, wysokie sufity",
+      "rating": 5,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d1"
+  },
+  "name": "Szkoła Podstawowa nr 45",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      21.002345,
+      52.214567
+    ],
+    "address": "ul. Szkolna 45, Warszawa"
+  },
+  "sportTypes": [
+    "streetball",
+    "basketball",
+    "football"
+  ],
+  "photos": [
+    "school_45_1.jpg"
+  ],
+  "description": "Boisko do koszykówki na terenie szkoły, dostępne po godzinach lekcyjnych",
+  "features": {
+    "covered": false,
+    "lighting": false,
+    "surface": "concrete",
+    "changingRooms": false
+  },
+  "workingHours": {
+    "monday": {
+      "open": "18:00",
+      "close": "21:00"
+    },
+    "tuesday": {
+      "open": "18:00",
+      "close": "21:00"
+    },
+    "wednesday": {
+      "open": "18:00",
+      "close": "21:00"
+    },
+    "thursday": {
+      "open": "18:00",
+      "close": "21:00"
+    },
+    "friday": {
+      "open": "18:00",
+      "close": "21:00"
+    },
+    "saturday": {
+      "open": "10:00",
+      "close": "21:00"
+    },
+    "sunday": {
+      "open": "10:00",
+      "close": "21:00"
+    }
+  },
+  "rating": 3.7,
+  "reviews": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cd"
+      },
+      "text": "Normalne boisko, ale brak oświetlenia wieczorem",
+      "rating": 3,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ce"
+      },
+      "text": "Niezłe do treningów, ale betonowa nawierzchnia jest dość twarda",
+      "rating": 4,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cc"
+      },
+      "text": "Po remoncie nawierzchnia jest znacznie lepsza, polecam na treningi!",
+      "rating": 5,
+      "date": {
+        "$date": "2025-04-21T17:44:45.580Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d2"
+  },
+  "name": "Park Wisła",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      21.035678,
+      52.251234
+    ],
+    "address": "ul. Nadbrzeżna 28, Warszawa"
+  },
+  "sportTypes": [
+    "streetball",
+    "basketball",
+    "football",
+    "volleyball"
+  ],
+  "photos": [
+    "wisla_park_1.jpg",
+    "wisla_park_2.jpg",
+    "wisla_park_3.jpg"
+  ],
+  "description": "Nowoczesne boisko nad Wisłą z widokiem na rzekę",
+  "features": {
+    "covered": false,
+    "lighting": true,
+    "surface": "rubber",
+    "changingRooms": true
+  },
+  "workingHours": {
+    "monday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "tuesday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "wednesday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "thursday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "friday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "saturday": {
+      "open": "06:00",
+      "close": "23:00"
+    },
+    "sunday": {
+      "open": "06:00",
+      "close": "23:00"
+    }
+  },
+  "rating": 4.6,
+  "reviews": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651ca"
+      },
+      "text": "Świetne boisko z gumową nawierzchnią, nie ślizga się nawet po deszczu",
+      "rating": 5,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d3"
+  },
+  "name": "Centrum Młodzieżowe",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      21.016789,
+      52.235678
+    ],
+    "address": "ul. Młodzieżowa 10, Warszawa"
+  },
+  "sportTypes": [
+    "streetball",
+    "basketball",
+    "football"
+  ],
+  "photos": [
+    "youth_center_1.jpg"
+  ],
+  "description": "Boisko do koszykówki przy centrum młodzieżowym",
+  "features": {
+    "lighting": true,
+    "surface": "wood",
+    "changingRooms": true,
+    "isIndoor": true
+  },
+  "workingHours": {
+    "monday": {
+      "open": "10:00",
+      "close": "20:00"
+    },
+    "tuesday": {
+      "open": "10:00",
+      "close": "20:00"
+    },
+    "wednesday": {
+      "open": "10:00",
+      "close": "20:00"
+    },
+    "thursday": {
+      "open": "10:00",
+      "close": "20:00"
+    },
+    "friday": {
+      "open": "10:00",
+      "close": "20:00"
+    },
+    "saturday": {
+      "open": "12:00",
+      "close": "18:00"
+    },
+    "sunday": {
+      "open": "12:00",
+      "close": "18:00"
+    }
+  },
+  "rating": 4.2,
+  "reviews": [
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cb"
+      },
+      "text": "Dobre boisko, ale często zajęte przez sekcje",
+      "rating": 4,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    },
+    {
+      "user": {
+        "$oid": "68066af3615f85b790f651cc"
+      },
+      "text": "Świetne miejsce do gry zimą, bo jest kryte",
+      "rating": 5,
+      "date": {
+        "$date": "2025-04-21T15:57:39.239Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.239Z"
+  }
+}]

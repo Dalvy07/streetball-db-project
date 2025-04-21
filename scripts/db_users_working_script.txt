@@ -1,0 +1,70 @@
+// admin dla calej DB
+use admin
+db.createUser(
+  {
+    user: "dbAdmin",
+    pwd: "secure_admin_password",
+    roles: [
+      { role: "userAdminAnyDatabase", db: "admin" },
+      { role: "dbAdminAnyDatabase", db: "admin" },
+      { role: "readWriteAnyDatabase", db: "admin" }
+    ]
+  }
+)
+
+// admin polecenia do testowania
+mongo -u dbAdmin -p secure_admin_password --authenticationDatabase admin
+
+use streetball-db
+db.createCollection("test_collection")
+
+db.users.find().limit(1)
+
+use test_db
+db.createCollection("test")
+
+show users
+
+// uzytkownik read/write tylko dla streetball-db
+use streetball-db
+db.createUser(
+  {
+    user: "streetball_dev",
+    pwd: "dev_password",
+    roles: [
+      { role: "readWrite", db: "streetball-db" }
+    ]
+  }
+)
+
+// polecenia do testowania uzytkownika read/write
+mongo -u streetball_dev -p dev_password --authenticationDatabase streetball-db
+
+use streetball-db
+db.users.find().limit(1)
+
+db.test_collection.insertOne({ test: "test data" })
+
+use admin
+db.system.users.find()
+
+
+// uzytkownik read tylko dla streetball_db
+use streetball-db
+db.createUser(
+  {
+    user: "streetball_reader",
+    pwd: "read_only_password",
+    roles: [
+      { role: "read", db: "streetball-db" }
+    ]
+  }
+)
+
+// polecenia do testowania uzytkownika read
+mongo -u streetball_reader -p read_only_password --authenticationDatabase streetball-db
+
+use streetball-db
+db.users.find().limit(1)
+
+db.test_collection.insertOne({ test: "test data" })

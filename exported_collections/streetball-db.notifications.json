@@ -1,0 +1,103 @@
+[{
+  "_id": {
+    "$oid": "68066af3615f85b790f651d9"
+  },
+  "user": {
+    "$oid": "68066af3615f85b790f651ca"
+  },
+  "game": {
+    "$oid": "68066af3615f85b790f651d4"
+  },
+  "type": "game_created",
+  "message": "Pomyślnie utworzyłeś grę w streetball (3x3)",
+  "isRead": true,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651da"
+  },
+  "user": {
+    "$oid": "68066af3615f85b790f651ca"
+  },
+  "game": {
+    "$oid": "68066af3615f85b790f651d6"
+  },
+  "type": "player_joined",
+  "message": "Dołączyłeś do gry w streetball (2x2)",
+  "isRead": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651db"
+  },
+  "user": {
+    "$oid": "68066af3615f85b790f651cb"
+  },
+  "game": {
+    "$oid": "68066af3615f85b790f651d5"
+  },
+  "type": "game_created",
+  "message": "Pomyślnie utworzyłeś grę w koszykówkę (5x5)",
+  "isRead": true,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651dc"
+  },
+  "user": {
+    "$oid": "68066af3615f85b790f651cb"
+  },
+  "game": {
+    "$oid": "68066af3615f85b790f651d4"
+  },
+  "type": "player_joined",
+  "message": "Dołączyłeś do gry w streetball (3x3)",
+  "isRead": false,
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651dd"
+  },
+  "user": {
+    "$oid": "68066af3615f85b790f651cc"
+  },
+  "game": {
+    "$oid": "68066af3615f85b790f651d4"
+  },
+  "type": "game_reminder",
+  "message": "Przypomnienie: Gra w streetball (3x3) rozpocznie się jutro",
+  "isRead": false,
+  "scheduledFor": {
+    "$date": "2025-04-22T15:57:39.244Z"
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.244Z"
+  }
+}]

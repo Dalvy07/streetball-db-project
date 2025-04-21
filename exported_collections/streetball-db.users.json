@@ -1,0 +1,178 @@
+[{
+  "_id": {
+    "$oid": "68066af3615f85b790f651ca"
+  },
+  "username": "adamkoszy",
+  "email": "adam@example.pl",
+  "password": "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i",
+  "fullName": "Adam Kowalski",
+  "avatar": "default-avatar.png",
+  "phone": "+48 501 234 567",
+  "createdGames": [
+    {
+      "$oid": "68066af3615f85b790f651d4"
+    }
+  ],
+  "joinedGames": [
+    {
+      "$oid": "68066af3615f85b790f651d4"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d6"
+    }
+  ],
+  "notifications": {
+    "email": true,
+    "push": true,
+    "reminderTime": 60
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651cb"
+  },
+  "username": "magdahoops",
+  "email": "magda@example.pl",
+  "password": "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i",
+  "fullName": "Magdalena Nowak",
+  "avatar": "default-avatar.png",
+  "phone": "+48 502 345 678",
+  "createdGames": [
+    {
+      "$oid": "68066af3615f85b790f651d5"
+    }
+  ],
+  "joinedGames": [
+    {
+      "$oid": "68066af3615f85b790f651d4"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d5"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d8"
+    }
+  ],
+  "notifications": {
+    "email": true,
+    "push": true,
+    "reminderTime": 45
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651cc"
+  },
+  "username": "piotr_pro",
+  "email": "piotr@example.pl",
+  "password": "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i",
+  "fullName": "Piotr Wiśniewski",
+  "avatar": "default-avatar.png",
+  "phone": "+48 503 456 789",
+  "createdGames": [
+    {
+      "$oid": "68066af3615f85b790f651d6"
+    }
+  ],
+  "joinedGames": [
+    {
+      "$oid": "68066af3615f85b790f651d4"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d6"
+    }
+  ],
+  "notifications": {
+    "email": false,
+    "push": true,
+    "reminderTime": 120
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651cd"
+  },
+  "username": "kasia_basket",
+  "email": "katarzyna@example.pl",
+  "password": "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i",
+  "fullName": "Katarzyna Lewandowska",
+  "avatar": "default-avatar.png",
+  "phone": "+48 504 567 890",
+  "createdGames": [
+    {
+      "$oid": "68066af3615f85b790f651d7"
+    }
+  ],
+  "joinedGames": [
+    {
+      "$oid": "68066af3615f85b790f651d5"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d7"
+    }
+  ],
+  "notifications": {
+    "email": true,
+    "push": true,
+    "reminderTime": 60
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68066af3615f85b790f651ce"
+  },
+  "username": "tomekslam",
+  "email": "tomasz@example.pl",
+  "password": "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i",
+  "fullName": "Tomasz Kamiński",
+  "avatar": "default-avatar.png",
+  "phone": "+48 505 678 901",
+  "createdGames": [
+    {
+      "$oid": "68066af3615f85b790f651d8"
+    }
+  ],
+  "joinedGames": [
+    {
+      "$oid": "68066af3615f85b790f651d5"
+    },
+    {
+      "$oid": "68066af3615f85b790f651d8"
+    }
+  ],
+  "notifications": {
+    "email": true,
+    "push": true,
+    "reminderTime": 45
+  },
+  "createdAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T15:57:39.229Z"
+  }
+}]
