@@ -32,3 +32,13 @@ StreetBall App to aplikacja internetowa do organizowania i uczestniczenia w ulic
 ### Zapewnienie elastycznej struktury danych:
 - Możliwość łatwego dodawania nowych dyscyplin sportowych
 - Skalowanie w celu zwiększenia bazy użytkowników
+
+## Opis folderów
+### exported_collections
+- Wyeksportowane dane ze wszystkich kolekcji
+
+### scripts 
+- Wszystkie skrypty wymagane w laboratorium z komentarzami
+
+### streetball-db
+- Backup bazy
