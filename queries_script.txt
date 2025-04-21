@@ -1,0 +1,126 @@
+// Bosika do koszykowki i siaktkowki
+db.courts.find({
+  sportTypes: { $all: ["streetball", "volleyball"] }
+})
+
+// Gry 3x3 zaplanowane na jutro
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+tomorrow.setHours(0, 0, 0, 0);
+const dayAfter = new Date(tomorrow);
+dayAfter.setDate(dayAfter.getDate() + 1);
+
+db.games.find({
+  format: "3x3",
+  dateTime: { $gte: tomorrow, $lt: dayAfter },
+  status: "scheduled"
+})
+
+// Zadaszone bosika z drewniana podloga
+db.courts.find({
+  "features.covered": true,
+  "features.surface": "wood"
+})
+
+
+// Boiska z ocena > 4.5 oraz posiadajace review
+db.courts.find({
+  rating: { $gt: 4.5 },
+  "reviews.0": { $exists: true }
+})
+
+
+// Uzytkownicy ktorzy maja nieprzeczynane notification
+const userIds = db.notifications.distinct("user", { isRead: false });
+db.users.find({ _id: { $in: userIds } })
+
+
+// Liczenie zaplanowanych gier dla boisk
+db.games.aggregate([
+  { $match: { status: "scheduled" } },
+  { $group: { 
+    _id: "$court", 
+    gameCount: { $sum: 1 } 
+  }},
+  { $lookup: {
+    from: "courts",
+    localField: "_id",
+    foreignField: "_id",
+    as: "courtInfo"
+  }},
+  { $project: {
+    courtName: { $arrayElemAt: ["$courtInfo.name", 0] },
+    gameCount: 1,
+    _id: 0
+  }},
+  { $sort: { gameCount: -1 } }
+])
+
+
+// Liczenie AVG liczby ludzi dla formatu gier
+db.games.aggregate([
+  { $match: { status: "scheduled" } },
+  { $project: {
+    format: 1,
+    occupancyRate: { 
+      $multiply: [
+        { $divide: [{ $size: "$currentPlayers" }, "$maxPlayers"] },
+        100
+      ]
+    }
+  }},
+  { $group: {
+    _id: "$format",
+    averageOccupancy: { $avg: "$occupancyRate" },
+    gameCount: { $sum: 1 }
+  }},
+  { $sort: { averageOccupancy: -1 } }
+])
+
+// Analiza aktywnosci uzytkownikow: liczba utworzonych  gier i gier do ktorych sie dolaczyl
+db.users.aggregate([
+  { $project: {
+    username: 1,
+    createdGamesCount: { $size: "$createdGames" },
+    joinedGamesCount: { $size: "$joinedGames" }
+  }},
+  { $addFields: {
+    totalActivity: { $add: ["$createdGamesCount", "$joinedGamesCount"] }
+  }},
+  { $sort: { totalActivity: -1 } }
+])
+
+// Liczba boisk dla kazdego sportu
+db.courts.aggregate([
+  { $unwind: "$sportTypes" },
+  { $group: {
+    _id: "$sportTypes",
+    courtCount: { $sum: 1 }
+  }},
+  { $sort: { courtCount: -1 } }
+])
+
+// Analiza najbardziej popularnych godzin
+db.games.aggregate([
+  { $match: { status: "scheduled" } },
+  { $project: {
+    hour: { $hour: "$dateTime" },
+    dayOfWeek: { $dayOfWeek: "$dateTime" },
+    players: { $size: "$currentPlayers" }
+  }},
+  { $group: {
+    _id: { hour: "$hour", dayOfWeek: "$dayOfWeek" },
+    gameCount: { $sum: 1 },
+    totalPlayers: { $sum: "$players" }
+  }},
+  { $sort: { totalPlayers: -1 } },
+  { $limit: 5 },
+  { $project: {
+    _id: 0,
+    hour: "$_id.hour",
+    dayOfWeek: "$_id.dayOfWeek",
+    gameCount: 1,
+    totalPlayers: 1,
+    averagePlayers: { $divide: ["$totalPlayers", "$gameCount"] }
+  }}
+])
