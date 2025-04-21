@@ -1,0 +1,531 @@
+use streetball-db
+
+db.users.drop()
+db.courts.drop()
+db.games.drop()
+db.notifications.drop()
+
+db.createCollection("users")
+db.createCollection("courts")
+db.createCollection("games")
+db.createCollection("notifications")
+
+db.users.insertMany([
+  {
+    username: "adamkoszy",
+    email: "adam@example.pl",
+    password: "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i", // "password123"
+    fullName: "Adam Kowalski",
+    avatar: "default-avatar.png",
+    phone: "+48 501 234 567",
+    createdGames: [],
+    joinedGames: [],
+    notifications: {
+      email: true,
+      push: true,
+      reminderTime: 60
+    },
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    username: "magdahoops",
+    email: "magda@example.pl",
+    password: "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i", // "password123"
+    fullName: "Magdalena Nowak",
+    avatar: "default-avatar.png",
+    phone: "+48 502 345 678",
+    createdGames: [],
+    joinedGames: [],
+    notifications: {
+      email: true,
+      push: false,
+      reminderTime: 30
+    },
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    username: "piotr_pro",
+    email: "piotr@example.pl",
+    password: "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i", // "password123"
+    fullName: "Piotr Wiśniewski",
+    avatar: "default-avatar.png",
+    phone: "+48 503 456 789",
+    createdGames: [],
+    joinedGames: [],
+    notifications: {
+      email: false,
+      push: true,
+      reminderTime: 120
+    },
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    username: "kasia_basket",
+    email: "katarzyna@example.pl",
+    password: "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i", // "password123"
+    fullName: "Katarzyna Lewandowska",
+    avatar: "default-avatar.png",
+    phone: "+48 504 567 890",
+    createdGames: [],
+    joinedGames: [],
+    notifications: {
+      email: true,
+      push: true,
+      reminderTime: 60
+    },
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    username: "tomekslam",
+    email: "tomasz@example.pl",
+    password: "$2a$10$qnPGv0opAm70OETJCu6qXuIjbwKS7aSQi69ZcP2aYKk2Wj3j7Fq/i", // "password123"
+    fullName: "Tomasz Kamiński",
+    avatar: "default-avatar.png",
+    phone: "+48 505 678 901",
+    createdGames: [],
+    joinedGames: [],
+    notifications: {
+      email: true,
+      push: true,
+      reminderTime: 30
+    },
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+]);
+
+
+const users = db.users.find().toArray();
+const userIds = users.map(user => user._id);
+
+
+db.courts.insertMany([
+  {
+    name: "Park Jordana",
+    location: {
+      type: "Point",
+      coordinates: [21.012228, 52.229676], // [долгота, широта] для Варшавы
+      address: "ul. Parkowa 15, Warszawa"
+    },
+    sportTypes: ["streetball", "basketball"],
+    photos: ["jordan_park_1.jpg", "jordan_park_2.jpg"],
+    description: "Popularny park z boiskiem do koszykówki, dobrą nawierzchnią i oświetleniem",
+    features: {
+      covered: false,
+      lighting: true,
+      surface: "asphalt",
+      changingRooms: false
+    },
+    workingHours: {
+      monday: { open: "08:00", close: "22:00" },
+      tuesday: { open: "08:00", close: "22:00" },
+      wednesday: { open: "08:00", close: "22:00" },
+      thursday: { open: "08:00", close: "22:00" },
+      friday: { open: "08:00", close: "22:00" },
+      saturday: { open: "09:00", close: "23:00" },
+      sunday: { open: "09:00", close: "23:00" }
+    },
+    rating: 4.5,
+    reviews: [
+      {
+        user: userIds[0],
+        text: "Świetne boisko, dobra nawierzchnia",
+        rating: 5,
+        date: new Date()
+      },
+      {
+        user: userIds[1],
+        text: "Wieczorem dobre oświetlenie, można grać do późna",
+        rating: 4,
+        date: new Date()
+      }
+    ],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Kompleks Sportowy 'Warszawa'",
+    location: {
+      type: "Point",
+      coordinates: [21.025123, 52.243541], // [долгота, широта] для Варшавы
+      address: "ul. Sportowa 10, Warszawa"
+    },
+    sportTypes: ["streetball", "basketball", "volleyball"],
+    photos: ["warsaw_complex_1.jpg", "warsaw_complex_2.jpg"],
+    description: "Kryty kompleks sportowy z kilkoma boiskami do koszykówki",
+    features: {
+      covered: true,
+      lighting: true,
+      surface: "wood",
+      changingRooms: true
+    },
+    workingHours: {
+      monday: { open: "07:00", close: "23:00" },
+      tuesday: { open: "07:00", close: "23:00" },
+      wednesday: { open: "07:00", close: "23:00" },
+      thursday: { open: "07:00", close: "23:00" },
+      friday: { open: "07:00", close: "23:00" },
+      saturday: { open: "08:00", close: "22:00" },
+      sunday: { open: "08:00", close: "22:00" }
+    },
+    rating: 4.8,
+    reviews: [
+      {
+        user: userIds[2],
+        text: "Najlepsze boisko w mieście. Drewniana podłoga, wysokie sufity",
+        rating: 5,
+        date: new Date()
+      }
+    ],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Szkoła Podstawowa nr 45",
+    location: {
+      type: "Point",
+      coordinates: [21.002345, 52.214567], // [долгота, широта] для Варшавы
+      address: "ul. Szkolna 45, Warszawa"
+    },
+    sportTypes: ["streetball", "basketball", "football"],
+    photos: ["school_45_1.jpg"],
+    description: "Boisko do koszykówki na terenie szkoły, dostępne po godzinach lekcyjnych",
+    features: {
+      covered: false,
+      lighting: false,
+      surface: "concrete",
+      changingRooms: false
+    },
+    workingHours: {
+      monday: { open: "18:00", close: "21:00" },
+      tuesday: { open: "18:00", close: "21:00" },
+      wednesday: { open: "18:00", close: "21:00" },
+      thursday: { open: "18:00", close: "21:00" },
+      friday: { open: "18:00", close: "21:00" },
+      saturday: { open: "10:00", close: "21:00" },
+      sunday: { open: "10:00", close: "21:00" }
+    },
+    rating: 3.5,
+    reviews: [
+      {
+        user: userIds[3],
+        text: "Normalne boisko, ale brak oświetlenia wieczorem",
+        rating: 3,
+        date: new Date()
+      },
+      {
+        user: userIds[4],
+        text: "Niezłe do treningów, ale betonowa nawierzchnia jest dość twarda",
+        rating: 4,
+        date: new Date()
+      }
+    ],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Park Wisła",
+    location: {
+      type: "Point",
+      coordinates: [21.035678, 52.251234], // [долгота, широта] для Варшавы
+      address: "ul. Nadbrzeżna 28, Warszawa"
+    },
+    sportTypes: ["streetball", "basketball", "football", "volleyball"],
+    photos: ["wisla_park_1.jpg", "wisla_park_2.jpg", "wisla_park_3.jpg"],
+    description: "Nowoczesne boisko nad Wisłą z widokiem na rzekę",
+    features: {
+      covered: false,
+      lighting: true,
+      surface: "rubber",
+      changingRooms: true
+    },
+    workingHours: {
+      monday: { open: "06:00", close: "23:00" },
+      tuesday: { open: "06:00", close: "23:00" },
+      wednesday: { open: "06:00", close: "23:00" },
+      thursday: { open: "06:00", close: "23:00" },
+      friday: { open: "06:00", close: "23:00" },
+      saturday: { open: "06:00", close: "23:00" },
+      sunday: { open: "06:00", close: "23:00" }
+    },
+    rating: 4.6,
+    reviews: [
+      {
+        user: userIds[0],
+        text: "Świetne boisko z gumową nawierzchnią, nie ślizga się nawet po deszczu",
+        rating: 5,
+        date: new Date()
+      }
+    ],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Centrum Młodzieżowe",
+    location: {
+      type: "Point",
+      coordinates: [21.016789, 52.235678], // [долгота, широта] для Варшавы
+      address: "ul. Młodzieżowa 10, Warszawa"
+    },
+    sportTypes: ["streetball", "basketball"],
+    photos: ["youth_center_1.jpg"],
+    description: "Boisko do koszykówki przy centrum młodzieżowym",
+    features: {
+      covered: true,
+      lighting: true,
+      surface: "wood",
+      changingRooms: true
+    },
+    workingHours: {
+      monday: { open: "10:00", close: "20:00" },
+      tuesday: { open: "10:00", close: "20:00" },
+      wednesday: { open: "10:00", close: "20:00" },
+      thursday: { open: "10:00", close: "20:00" },
+      friday: { open: "10:00", close: "20:00" },
+      saturday: { open: "12:00", close: "18:00" },
+      sunday: { open: "12:00", close: "18:00" }
+    },
+    rating: 4.2,
+    reviews: [
+      {
+        user: userIds[1],
+        text: "Dobre boisko, ale często zajęte przez sekcje",
+        rating: 4,
+        date: new Date()
+      },
+      {
+        user: userIds[2],
+        text: "Świetne miejsce do gry zimą, bo jest kryte",
+        rating: 5,
+        date: new Date()
+      }
+    ],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+]);
+
+
+
+const courts = db.courts.find().toArray();
+const courtIds = courts.map(court => court._id);
+
+
+const now = new Date();
+const tomorrow = new Date();
+tomorrow.setDate(now.getDate() + 1);
+const dayAfterTomorrow = new Date();
+dayAfterTomorrow.setDate(now.getDate() + 2);
+const nextWeek = new Date();
+nextWeek.setDate(now.getDate() + 7);
+
+db.games.insertMany([
+  {
+    court: courtIds[0],
+    creator: userIds[0],
+    sportType: "streetball",
+    dateTime: tomorrow,
+    duration: 90,
+    format: "3x3",
+    maxPlayers: 12,
+    currentPlayers: [
+      { user: userIds[0], joinedAt: now },
+      { user: userIds[1], joinedAt: now },
+      { user: userIds[2], joinedAt: now }
+    ],
+    status: "scheduled",
+    description: "Cotygodniowa gra dla amatorów. Gramy 3 na 3, zapraszamy wszystkich!",
+    skillLevel: "intermediate",
+    isPrivate: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    court: courtIds[1],
+    creator: userIds[1],
+    sportType: "basketball",
+    dateTime: dayAfterTomorrow,
+    duration: 120,
+    format: "5x5",
+    maxPlayers: 15,
+    currentPlayers: [
+      { user: userIds[1], joinedAt: now },
+      { user: userIds[3], joinedAt: now },
+      { user: userIds[4], joinedAt: now }
+    ],
+    status: "scheduled",
+    description: "Pełnowymiarowa gra 5 na 5 na krytym boisku. Zapraszamy!",
+    skillLevel: "advanced",
+    isPrivate: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    court: courtIds[2],
+    creator: userIds[2],
+    sportType: "streetball",
+    dateTime: tomorrow,
+    duration: 60,
+    format: "2x2",
+    maxPlayers: 8,
+    currentPlayers: [
+      { user: userIds[2], joinedAt: now },
+      { user: userIds[0], joinedAt: now }
+    ],
+    status: "scheduled",
+    description: "Trening dla początkujących. Format 2 na 2 dla lepszej nauki podstaw.",
+    skillLevel: "beginner",
+    isPrivate: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    court: courtIds[3],
+    creator: userIds[3],
+    sportType: "streetball",
+    dateTime: nextWeek,
+    duration: 120,
+    format: "3x3",
+    maxPlayers: 12,
+    currentPlayers: [
+      { user: userIds[3], joinedAt: now }
+    ],
+    status: "scheduled",
+    description: "Gra na nowym boisku z gumową nawierzchnią. Format 3x3, zapraszamy wszystkich chętnych.",
+    skillLevel: "any",
+    isPrivate: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    court: courtIds[4],
+    creator: userIds[4],
+    sportType: "basketball",
+    dateTime: nextWeek,
+    duration: 90,
+    format: "5x5",
+    maxPlayers: 12,
+    currentPlayers: [
+      { user: userIds[4], joinedAt: now },
+      { user: userIds[1], joinedAt: now }
+    ],
+    status: "scheduled",
+    description: "Prywatna gra dla zaawansowanych graczy. Potrzebny kod zaproszenia.",
+    skillLevel: "advanced",
+    isPrivate: true,
+    inviteCode: "KOSZ123",
+    createdAt: now,
+    updatedAt: now
+  }
+]);
+
+
+const games = db.games.find().toArray();
+const gameIds = games.map(game => game._id);
+
+
+
+db.users.updateOne(
+  { _id: userIds[0] },
+  { 
+    $set: { 
+      createdGames: [gameIds[0]],
+      joinedGames: [gameIds[0], gameIds[2]]
+    }
+  }
+);
+
+db.users.updateOne(
+  { _id: userIds[1] },
+  { 
+    $set: { 
+      createdGames: [gameIds[1]],
+      joinedGames: [gameIds[0], gameIds[1], gameIds[4]]
+    }
+  }
+);
+
+db.users.updateOne(
+  { _id: userIds[2] },
+  { 
+    $set: { 
+      createdGames: [gameIds[2]],
+      joinedGames: [gameIds[0], gameIds[2]]
+    }
+  }
+);
+
+db.users.updateOne(
+  { _id: userIds[3] },
+  { 
+    $set: { 
+      createdGames: [gameIds[3]],
+      joinedGames: [gameIds[1], gameIds[3]]
+    }
+  }
+);
+
+db.users.updateOne(
+  { _id: userIds[4] },
+  { 
+    $set: { 
+      createdGames: [gameIds[4]],
+      joinedGames: [gameIds[1], gameIds[4]]
+    }
+  }
+);
+
+
+
+db.notifications.insertMany([
+  {
+    user: userIds[0],
+    game: gameIds[0],
+    type: "game_created",
+    message: "Pomyślnie utworzyłeś grę w streetball (3x3)",
+    isRead: true,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    user: userIds[0],
+    game: gameIds[2],
+    type: "player_joined",
+    message: "Dołączyłeś do gry w streetball (2x2)",
+    isRead: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    user: userIds[1],
+    game: gameIds[1],
+    type: "game_created",
+    message: "Pomyślnie utworzyłeś grę w koszykówkę (5x5)",
+    isRead: true,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    user: userIds[1],
+    game: gameIds[0],
+    type: "player_joined",
+    message: "Dołączyłeś do gry w streetball (3x3)",
+    isRead: false,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    user: userIds[2],
+    game: gameIds[0],
+    type: "game_reminder",
+    message: "Przypomnienie: Gra w streetball (3x3) rozpocznie się jutro",
+    isRead: false,
+    scheduledFor: tomorrow,
+    createdAt: now,
+    updatedAt: now
+  }
+]);
