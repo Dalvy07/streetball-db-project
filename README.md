@@ -1,70 +1,70 @@
-# Baza danych dla aplikacji Streetball-App
+# База данных для приложения Streetball-App
 
-![Logo](https://api.placeholder.com/400/150?text=StreetBall+App)
+![Логотип](https://api.placeholder.com/400/150?text=StreetBall+App)
 
-## Projekt bazy danych NoSQL MongoDB
+## Проект базы данных NoSQL MongoDB
 
-**Autor:** Vladyslav Liulka  
+**Автор:** Владислав Люлька  
 
 ---
 
-Lublin, 2025
+Люблин, 2025
 
-# Dokumentacja projektu bazy danych StreetBall App
+# Документация проекта базы данных StreetBall App
 
-## Spis treści
-1. [Opis projektu](#1-opis-projektu)
-2. [Wymagania funkcjonalne bazy danych](#2-wymagania-funkcjonalne-bazy-danych)
-3. [Struktura kolekcji](#3-struktura-kolekcji)
-4. [Implementacja bazy danych](#4-implementacja-bazy-danych)
-5. [Zapytania do bazy danych](#5-zapytania-do-bazy-danych)
-6. [Operacje aktualizacji danych](#6-operacje-aktualizacji-danych)
-7. [Zarządzanie użytkownikami bazy danych](#7-zarządzanie-użytkownikami-bazy-danych)
-8. [Eksport i kopie zapasowe bazy](#8-eksport-i-kopie-zapasowe-bazy)
+## Содержание
+1. [Описание проекта](#1-описание-проекта)
+2. [Функциональные требования к базе данных](#2-функциональные-требования-к-базе-данных)
+3. [Структура коллекций](#3-структура-коллекций)
+4. [Реализация базы данных](#4-реализация-базы-данных)
+5. [Запросы к базе данных](#5-запросы-к-базе-данных)
+6. [Операции обновления данных](#6-операции-обновления-данных)
+7. [Управление пользователями базы данных](#7-управление-пользователями-базы-данных)
+8. [Экспорт и резервные копии базы](#8-экспорт-и-резервные-копии-базы)
 
-## 1. Opis projektu
+## 1. Описание проекта
 
-StreetBall App to aplikacja internetowa do organizowania i uczestniczenia w ulicznych grach sportowych w Polsce, z początkowym naciskiem na streetball i koszykówkę, z możliwością rozszerzenia na inne sporty (piłka nożna, siatkówka itp.). Głównym celem aplikacji jest uproszczenie procesu wyszukiwania gier i boisk, a także organizowania własnych gier.
+StreetBall App — это веб-приложение для организации и участия в уличных спортивных играх в Польше, с первоначальным акцентом на стритбол и баскетбол, с возможностью расширения на другие виды спорта (футбол, волейбол и т.д.). Главная цель приложения — упростить процесс поиска игр и площадок, а также организации собственных игр.
 
-System ma ułatwić entuzjastom sportów ulicznych znalezienie dostępnych boisk, dołączanie do istniejących gier oraz tworzenie własnych wydarzeń sportowych. Początkowo aplikacja skupia się na grach typu streetball i koszykówka, ale struktura danych została zaprojektowana z myślą o przyszłej rozbudowie o inne sporty.
+Система должна помочь энтузиастам уличных видов спорта находить доступные площадки, присоединяться к существующим играм и создавать собственные спортивные мероприятия. Изначально приложение фокусируется на играх типа стритбол и баскетбол, но структура данных была спроектирована с учетом будущего расширения на другие виды спорта.
 
-## 2. Wymagania funkcjonalne bazy danych
+## 2. Функциональные требования к базе данных
 
-### Przechowywanie informacji o użytkownikach:
-- Podstawowe dane profilu (nazwa użytkownika, e-mail, hasło)
-- Ustawienia powiadomień
-- Linki do utworzonych i dołączonych gier
+### Хранение информации о пользователях:
+- Основные данные профиля (имя пользователя, электронная почта, пароль)
+- Настройки уведомлений
+- Ссылки на созданные и присоединенные игры
 
-### Przechowywanie informacji o obiektach sportowych:
-- Współrzędne geograficzne do wyświetlenia na mapie
-- Szczegółowe informacje o boisku (rodzaj nawierzchni, oświetlenie itp.)
-- Obsługiwane dyscypliny sportowe
-- Oceny i recenzje
+### Хранение информации о спортивных объектах:
+- Географические координаты для отображения на карте
+- Подробная информация о площадке (тип покрытия, освещение и т.д.)
+- Поддерживаемые спортивные дисциплины
+- Оценки и отзывы
 
-### Przechowywanie informacji o grze:
-- Czas i czas trwania
-- Lokalizacja (boisko)
-- Format gry (3x3, 5x5 itp.)
-- Lista uczestników
-- Status gry (zaplanowana, w toku, zakończona, anulowana)
+### Хранение информации об игре:
+- Время и продолжительность
+- Местоположение (площадка)
+- Формат игры (3х3, 5х5 и т.д.)
+- Список участников
+- Статус игры (запланирована, в процессе, завершена, отменена)
 
-### Przechowywanie powiadomień:
-- Śledzenie przeczytanych/nieprzeczytanych powiadomień
-- Komunikacja z użytkownikami i grami
-- Typ powiadomienia (przypomnienie, dołączenie gracza itp.)
+### Хранение уведомлений:
+- Отслеживание прочитанных/непрочитанных уведомлений
+- Связь с пользователями и играми
+- Тип уведомления (напоминание, присоединение игрока и т.д.)
 
-Dodatkowo, baza danych musi umożliwiać:
-- Wyszukiwanie dostępnych boisk w okolicy
-- Filtrowanie gier według poziomu zaawansowania, formatu i typu sportu
-- Monitorowanie zaplanowanych gier i przypomnienia o nich
-- Analizę aktywności użytkowników i popularności boisk
+Кроме того, база данных должна обеспечивать:
+- Поиск доступных площадок в окрестностях
+- Фильтрацию игр по уровню подготовки, формату и виду спорта
+- Мониторинг запланированных игр и напоминания о них
+- Анализ активности пользователей и популярности площадок
 
-## 3. Struktura kolekcji
+## 3. Структура коллекций
 
-Baza danych MongoDB składa się z następujących kolekcji:
+База данных MongoDB состоит из следующих коллекций:
 
-### Kolekcja users:
-Przechowuje informacje o użytkownikach aplikacji:
+### Коллекция users:
+Хранит информацию о пользователях приложения:
 ```json
 {
   "_id": ObjectId,
@@ -74,8 +74,8 @@ Przechowuje informacje o użytkownikach aplikacji:
   "fullName": String,
   "avatar": String,
   "phone": String,
-  "createdGames": [ObjectId], // referencje do kolekcji games
-  "joinedGames": [ObjectId],  // referencje do kolekcji games
+  "createdGames": [ObjectId], // ссылки на коллекцию games
+  "joinedGames": [ObjectId],  // ссылки на коллекцию games
   "notifications": {
     "email": Boolean,
     "push": Boolean,
@@ -86,15 +86,15 @@ Przechowuje informacje o użytkownikach aplikacji:
 }
 ```
 
-### Kolekcja courts:
-Przechowuje informacje o boiskach dostępnych w systemie:
+### Коллекция courts:
+Хранит информацию о площадках, доступных в системе:
 ```json
 {
   "_id": ObjectId,
   "name": String,
   "location": {
     "type": String,
-    "coordinates": [Number, Number], // długość i szerokość geograficzna
+    "coordinates": [Number, Number], // долгота и широта
     "address": String
   },
   "sportTypes": [String],
@@ -108,12 +108,12 @@ Przechowuje informacje o boiskach dostępnych w systemie:
   },
   "workingHours": {
     "monday": { "open": String, "close": String },
-    // ... dla pozostałych dni tygodnia
+    // ... для остальных дней недели
   },
   "rating": Number,
   "reviews": [
     {
-      "user": ObjectId, // referencja do kolekcji users
+      "user": ObjectId, // ссылка на коллекцию users
       "text": String,
       "rating": Number,
       "date": Date
@@ -124,21 +124,21 @@ Przechowuje informacje o boiskach dostępnych w systemie:
 }
 ```
 
-### Kolekcja games:
-Przechowuje informacje o grach utworzonych przez użytkowników:
+### Коллекция games:
+Хранит информацию об играх, созданных пользователями:
 ```json
 {
   "_id": ObjectId,
-  "court": ObjectId, // referencja do kolekcji courts
-  "creator": ObjectId, // referencja do kolekcji users
+  "court": ObjectId, // ссылка на коллекцию courts
+  "creator": ObjectId, // ссылка на коллекцию users
   "sportType": String,
   "dateTime": Date,
-  "duration": Number, // w minutach
-  "format": String, // np. "3x3", "5x5"
+  "duration": Number, // в минутах
+  "format": String, // например "3x3", "5x5"
   "maxPlayers": Number,
   "currentPlayers": [
     {
-      "user": ObjectId, // referencja do kolekcji users
+      "user": ObjectId, // ссылка на коллекцию users
       "joinedAt": Date
     }
   ],
@@ -146,53 +146,53 @@ Przechowuje informacje o grach utworzonych przez użytkowników:
   "description": String,
   "skillLevel": String, // "beginner", "intermediate", "advanced", "any"
   "isPrivate": Boolean,
-  "inviteCode": String, // opcjonalnie dla prywatnych gier
+  "inviteCode": String, // опционально для приватных игр
   "createdAt": Date,
   "updatedAt": Date
 }
 ```
 
-### Kolekcja notifications:
-Przechowuje informacje o powiadomieniach wysyłanych do użytkowników:
+### Коллекция notifications:
+Хранит информацию об уведомлениях, отправляемых пользователям:
 ```json
 {
   "_id": ObjectId,
-  "user": ObjectId, // referencja do kolekcji users
-  "game": ObjectId, // referencja do kolekcji games
-  "type": String, // typ powiadomienia
+  "user": ObjectId, // ссылка на коллекцию users
+  "game": ObjectId, // ссылка на коллекцию games
+  "type": String, // тип уведомления
   "message": String,
   "isRead": Boolean,
-  "scheduledFor": Date, // opcjonalnie dla przypomnień
+  "scheduledFor": Date, // опционально для напоминаний
   "createdAt": Date,
   "updatedAt": Date
 }
 ```
 
-## 4. Implementacja bazy danych
+## 4. Реализация базы данных
 
-Poniżej przedstawione są skrypty MongoDB, które zostały wykorzystane do utworzenia i wypełnienia bazy danych przykładowymi danymi.
+Ниже представлены скрипты MongoDB, которые были использованы для создания и заполнения базы данных примерными данными.
 
-### Tworzenie kolekcji i wypełnianie danymi
+### Создание коллекций и заполнение данными
 
-Skrypt tworzący kolekcje i wypełniający je przykładowymi danymi:
+Скрипт, создающий коллекции и заполняющий их примерными данными:
 
 ```javascript
-// Przełączenie na schemat lub jego utworzenie
+// Переключение на схему или её создание
 use streetball-db
 
-// Usunięcie kolekcji (jeśli istnieją)
+// Удаление коллекций (если существуют)
 db.users.drop()
 db.courts.drop()
 db.games.drop()
 db.notifications.drop()
 
-// Utworzenie kolekcji
+// Создание коллекций
 db.createCollection("users")
 db.createCollection("courts")
 db.createCollection("games")
 db.createCollection("notifications")
 
-// Dodawanie dokumentów do kolekcji users
+// Добавление документов в коллекцию users
 db.users.insertMany([
   {
     username: "adamkoszy",
@@ -211,14 +211,14 @@ db.users.insertMany([
     createdAt: new Date(),
     updatedAt: new Date()
   },
-  // ... pozostali użytkownicy
+  // ... остальные пользователи
 ])
 
-// Zapamietywanie ID userow do latwiejszej pracy
+// Сохранение ID пользователей для удобства работы
 const users = db.users.find().toArray();
 const userIds = users.map(user => user._id);
 
-// Dodawanie danych do kolekcji courts
+// Добавление данных в коллекцию courts
 db.courts.insertMany([
   {
     name: "Park Jordana",
@@ -229,36 +229,36 @@ db.courts.insertMany([
     },
     sportTypes: ["streetball", "basketball"],
     photos: ["jordan_park_1.jpg", "jordan_park_2.jpg"],
-    // ... pozostałe dane boiska
+    // ... остальные данные площадки
   },
-  // ... pozostałe boiska
+  // ... остальные площадки
 ])
 
-// ... pozostałe kolekcje (games, notifications)
+// ... остальные коллекции (games, notifications)
 ```
 
-Skrypt tworzy cztery kolekcje i wypełnia je przykładowymi danymi, które umożliwiają testowanie funkcjonalności aplikacji. Dodane są przykładowe dane:
-- 5 użytkowników
-- 5 boisk o różnych cechach (nawierzchni, oświetleniu, itp.)
-- 5 gier o różnych formatach (3x3, 5x5, itp.) i poziomach zaawansowania
-- 5 powiadomień różnych typów
+Скрипт создает четыре коллекции и заполняет их примерными данными, которые позволяют тестировать функциональность приложения. Добавлены примерные данные:
+- 5 пользователей
+- 5 площадок с различными характеристиками (покрытие, освещение и т.д.)
+- 5 игр различных форматов (3х3, 5х5 и т.д.) и уровней подготовки
+- 5 уведомлений различных типов
 
-## 5. Zapytania do bazy danych
+## 5. Запросы к базе данных
 
-Poniżej przedstawione są przykłady zapytań wykonywanych na bazie danych, które realizują wymagane funkcjonalności aplikacji:
+Ниже представлены примеры запросов, выполняемых в базе данных, которые реализуют требуемую функциональность приложения:
 
-### Zapytanie 1: Wyszukiwanie boisk obsługujących określone sporty
+### Запрос 1: Поиск площадок, поддерживающих определенные виды спорта
 ```javascript
-// Boiska do koszykówki i siatkówki
+// Площадки для баскетбола и волейбола
 db.courts.find({
   sportTypes: { $all: ["streetball", "volleyball"] }
 })
 ```
-To zapytanie zwraca boiska, które obsługują zarówno streetball, jak i siatkówkę.
+Этот запрос возвращает площадки, которые поддерживают как стритбол, так и волейбол.
 
-### Zapytanie 2: Wyszukiwanie gier o określonym formacie w konkretnym dniu
+### Запрос 2: Поиск игр определенного формата в конкретный день
 ```javascript
-// Gry 3x3 zaplanowane na jutro
+// Игры 3х3, запланированные на завтра
 const tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
 tomorrow.setHours(0, 0, 0, 0);
@@ -271,39 +271,39 @@ db.games.find({
   status: "scheduled"
 })
 ```
-To zapytanie wyszukuje wszystkie zaplanowane gry w formacie 3x3, które odbywają się następnego dnia.
+Этот запрос ищет все запланированные игры в формате 3х3, которые проходят на следующий день.
 
-### Zapytanie 3: Wyszukiwanie boisk o określonych cechach
+### Запрос 3: Поиск площадок с определенными характеристиками
 ```javascript
-// Zadaszone boiska z drewnianą podłogą
+// Крытые площадки с деревянным полом
 db.courts.find({
   "features.covered": true,
   "features.surface": "wood"
 })
 ```
-To zapytanie wyszukuje wszystkie kryte boiska z drewnianą nawierzchnią.
+Этот запрос ищет все крытые площадки с деревянным покрытием.
 
-### Zapytanie 4: Wyszukiwanie boisk o wysokiej ocenie i z recenzjami
+### Запрос 4: Поиск площадок с высокой оценкой и с отзывами
 ```javascript
-// Boiska z oceną > 4.5 oraz posiadające review
+// Площадки с оценкой > 4.5 и имеющие отзывы
 db.courts.find({
   rating: { $gt: 4.5 },
   "reviews.0": { $exists: true }
 })
 ```
-To zapytanie zwraca boiska o ocenie powyżej 4.5, które mają co najmniej jedną recenzję.
+Этот запрос возвращает площадки с оценкой выше 4.5, которые имеют хотя бы один отзыв.
 
-### Zapytanie 5: Wyszukiwanie użytkowników z nieprzeczytanymi powiadomieniami
+### Запрос 5: Поиск пользователей с непрочитанными уведомлениями
 ```javascript
-// Użytkownicy, którzy mają nieprzeczytane powiadomienia
+// Пользователи, у которых есть непрочитанные уведомления
 const userIds = db.notifications.distinct("user", { isRead: false });
 db.users.find({ _id: { $in: userIds } })
 ```
-To zapytanie znajduje wszystkich użytkowników, którzy mają nieprzeczytane powiadomienia.
+Этот запрос находит всех пользователей, у которых есть непрочитанные уведомления.
 
-### Zapytanie 6: Agregacja - Liczba zaplanowanych gier na boiskach
+### Запрос 6: Агрегация - Количество запланированных игр на площадках
 ```javascript
-// Liczenie zaplanowanych gier dla boisk
+// Подсчет запланированных игр для площадок
 db.games.aggregate([
   { $match: { status: "scheduled" } },
   { $group: { 
@@ -324,11 +324,11 @@ db.games.aggregate([
   { $sort: { gameCount: -1 } }
 ])
 ```
-Ta agregacja liczy zaplanowane gry dla każdego boiska i zwraca boiska posortowane według liczby gier.
+Эта агрегация считает запланированные игры для каждой площадки и возвращает площадки, отсортированные по количеству игр.
 
-### Zapytanie 7: Agregacja - Średni poziom zapełnienia gier według formatów
+### Запрос 7: Агрегация - Средний уровень заполнения игр по форматам
 ```javascript
-// Liczenie AVG liczby ludzi dla formatu gier
+// Подсчет СРЕДНЕГО количества людей для формата игр
 db.games.aggregate([
   { $match: { status: "scheduled" } },
   { $project: {
@@ -348,11 +348,11 @@ db.games.aggregate([
   { $sort: { averageOccupancy: -1 } }
 ])
 ```
-Ta agregacja oblicza średni poziom zapełnienia (w procentach) dla gier w różnych formatach.
+Эта агрегация вычисляет средний уровень заполнения (в процентах) для игр в различных форматах.
 
-### Zapytanie 8: Agregacja - Analiza aktywności użytkowników
+### Запрос 8: Агрегация - Анализ активности пользователей
 ```javascript
-// Analiza aktywności użytkowników: liczba utworzonych gier i gier, do których się dołączyli
+// Анализ активности пользователей: количество созданных игр и игр, к которым они присоединились
 db.users.aggregate([
   { $project: {
     username: 1,
@@ -365,11 +365,11 @@ db.users.aggregate([
   { $sort: { totalActivity: -1 } }
 ])
 ```
-Ta agregacja analizuje aktywność użytkowników, zliczając liczbę utworzonych i dołączonych gier, a następnie sortuje użytkowników według całkowitej aktywności.
+Эта агрегация анализирует активность пользователей, подсчитывая количество созданных и присоединенных игр, а затем сортирует пользователей по общей активности.
 
-### Zapytanie 9: Agregacja - Liczba boisk dla każdego sportu
+### Запрос 9: Агрегация - Количество площадок для каждого вида спорта
 ```javascript
-// Liczba boisk dla każdego sportu
+// Количество площадок для каждого вида спорта
 db.courts.aggregate([
   { $unwind: "$sportTypes" },
   { $group: {
@@ -379,11 +379,11 @@ db.courts.aggregate([
   { $sort: { courtCount: -1 } }
 ])
 ```
-Ta agregacja liczy, ile boisk obsługuje każdy z typów sportów.
+Эта агрегация считает, сколько площадок поддерживает каждый из видов спорта.
 
-### Zapytanie 10: Agregacja - Analiza najbardziej popularnych godzin gry
+### Запрос 10: Агрегация - Анализ наиболее популярных часов игры
 ```javascript
-// Analiza najbardziej popularnych godzin
+// Анализ наиболее популярных часов
 db.games.aggregate([
   { $match: { status: "scheduled" } },
   { $project: {
@@ -408,15 +408,15 @@ db.games.aggregate([
   }}
 ])
 ```
-Ta agregacja analizuje, które godziny i dni tygodnia są najbardziej popularne do gry, bazując na liczbie graczy.
+Эта агрегация анализирует, какие часы и дни недели наиболее популярны для игры, основываясь на количестве игроков.
 
-## 6. Operacje aktualizacji danych
+## 6. Операции обновления данных
 
-Poniżej przedstawione są przykłady operacji aktualizacji danych w bazie:
+Ниже представлены примеры операций обновления данных в базе:
 
-### Aktualizacja 1: Zmiana cech boiska
+### Обновление 1: Изменение характеристик площадки
 ```javascript
-// Zmiana godzin pracy, dodanie oświetlenia i zmiana opisu
+// Изменение часов работы, добавление освещения и изменение описания
 db.courts.updateOne(
   { name: "Park Jordana" },
   {
@@ -424,16 +424,16 @@ db.courts.updateOne(
       "features.lighting": true,
       "workingHours.friday.open": "07:00",
       "workingHours.friday.close": "23:00",
-      "description": "Odnowiony park z profesjonalnym boiskiem do koszykówki, doskonałą nawierzchnią i nowoczesnym oświetleniem LED"
+      "description": "Обновленный парк с профессиональной баскетбольной площадкой, отличным покрытием и современным LED-освещением"
     }
   }
 )
 ```
-Ta operacja aktualizuje godziny otwarcia, dodaje oświetlenie i zmienia opis boiska "Park Jordana".
+Эта операция обновляет часы открытия, добавляет освещение и меняет описание площадки "Park Jordana".
 
-### Aktualizacja 2: Dodanie recenzji i aktualizacja oceny boiska
+### Обновление 2: Добавление отзыва и обновление оценки площадки
 ```javascript
-// Zwiększenie oceny boiska i dodanie nowego review
+// Увеличение оценки площадки и добавление нового отзыва
 const userId = db.users.findOne({ username: "piotr_pro" })._id;
 
 db.courts.updateOne(
@@ -443,7 +443,7 @@ db.courts.updateOne(
     $push: {
       reviews: {
         user: userId,
-        text: "Po remoncie nawierzchnia jest znacznie lepsza, polecam na treningi!",
+        text: "После ремонта покрытие значительно лучше, рекомендую для тренировок!",
         rating: 5,
         date: new Date()
       }
@@ -451,11 +451,11 @@ db.courts.updateOne(
   }
 )
 ```
-Ta operacja dodaje nową recenzję boiska i zwiększa jego ocenę o 0.2.
+Эта операция добавляет новый отзыв о площадке и увеличивает ее оценку на 0.2.
 
-### Aktualizacja 3: Zmiana statusu gry i usunięcie gracza
+### Обновление 3: Изменение статуса игры и удаление игрока
 ```javascript
-// Zmiana statusu gry oraz usunięcie gracza
+// Изменение статуса игры и удаление игрока
 db.games.updateOne(
   { sportType: "streetball", format: "3x3", status: "scheduled" },
   {
@@ -468,11 +468,11 @@ db.games.updateOne(
   }
 )
 ```
-Ta operacja zmienia status gry na "w trakcie" i usuwa jednego z graczy z listy uczestników.
+Эта операция меняет статус игры на "в процессе" и удаляет одного из игроков из списка участников.
 
-### Aktualizacja 4: Dodanie nowego sportu i zmiana nazwy pola
+### Обновление 4: Добавление нового вида спорта и изменение названия поля
 ```javascript
-// Dodanie nowego sportu oraz zmiana nazwy pola
+// Добавление нового вида спорта и изменение названия поля
 db.courts.updateOne(
   { name: "Centrum Młodzieżowe" },
   {
@@ -481,11 +481,11 @@ db.courts.updateOne(
   }
 )
 ```
-Ta operacja dodaje nowy sport (piłka nożna) do boiska i zmienia nazwę pola z "covered" na "isIndoor".
+Эта операция добавляет новый вид спорта (футбол) на площадку и меняет название поля с "covered" на "isIndoor".
 
-### Aktualizacja 5: Aktualizacja wielu dokumentów jednocześnie
+### Обновление 5: Обновление нескольких документов одновременно
 ```javascript
-// Zmiana ustawień notification dla wszystkich użytkowników i zwiększenie czasu notification
+// Изменение настроек уведомлений для всех пользователей и увеличение времени уведомления
 db.users.updateMany(
   { "notifications.reminderTime": { $lt: 60 } },
   {
@@ -494,15 +494,15 @@ db.users.updateMany(
   }
 )
 ```
-Ta operacja aktualizuje ustawienia powiadomień dla wszystkich użytkowników, którzy mają czas przypomnienia mniejszy niż 60 minut, ustawiając powiadomienia push na true i zwiększając czas przypomnienia o 15 minut.
+Эта операция обновляет настройки уведомлений для всех пользователей, у которых время напоминания меньше 60 минут, устанавливая push-уведомления на true и увеличивая время напоминания на 15 минут.
 
-## 7. Zarządzanie użytkownikami bazy danych
+## 7. Управление пользователями базы данных
 
-W ramach zabezpieczenia bazy danych utworzono trzech użytkowników o różnych poziomach uprawnień:
+В рамках защиты базы данных созданы три пользователя с различными уровнями прав:
 
-### Administrator bazy danych
+### Администратор базы данных
 ```javascript
-// Admin dla całej DB
+// Админ для всей БД
 use admin
 db.createUser(
   {
@@ -516,11 +516,11 @@ db.createUser(
   }
 )
 ```
-Ten użytkownik ma pełne uprawnienia do zarządzania bazą danych, w tym tworzenia, modyfikowania i usuwania kolekcji oraz dokumentów w dowolnej bazie.
+Этот пользователь имеет полные права на управление базой данных, включая создание, изменение и удаление коллекций и документов в любой базе.
 
-### Użytkownik z uprawnieniami do odczytu i zapisu
+### Пользователь с правами на чтение и запись
 ```javascript
-// Użytkownik read/write tylko dla streetball-db
+// Пользователь read/write только для streetball-db
 use streetball-db
 db.createUser(
   {
@@ -532,11 +532,11 @@ db.createUser(
   }
 )
 ```
-Ten użytkownik może odczytywać i modyfikować dane w bazie streetball-db, ale nie ma uprawnień administracyjnych.
+Этот пользователь может читать и изменять данные в базе streetball-db, но не имеет административных прав.
 
-### Użytkownik tylko do odczytu
+### Пользователь только для чтения
 ```javascript
-// Użytkownik read tylko dla streetball_db
+// Пользователь read только для streetball_db
 use streetball-db
 db.createUser(
   {
@@ -548,34 +548,34 @@ db.createUser(
   }
 )
 ```
-Ten użytkownik może tylko odczytywać dane z bazy streetball-db, bez możliwości wprowadzania zmian.
+Этот пользователь может только читать данные из базы streetball-db, без возможности вносить изменения.
 
-## 8. Eksport i kopie zapasowe bazy
+## 8. Экспорт и резервные копии базы
 
-Wykonano eksport danych z bazy w celu zabezpieczenia przed utratą danych:
+Выполнен экспорт данных из базы с целью защиты от потери данных:
 
-### Eksport danych
+### Экспорт данных
 ```bash
 mongodump --db streetball-db --out exported_collections
 ```
-Komenda eksportuje wszystkie kolekcje z bazy streetball-db do katalogu exported_collections.
+Команда экспортирует все коллекции из базы streetball-db в каталог exported_collections.
 
-### Tworzenie kopii zapasowej
+### Создание резервной копии
 ```bash
 mongodump --db streetball-db --out streetball-db
 ```
-Komenda tworzy kopię zapasową bazy streetball-db.
+Команда создает резервную копию базы streetball-db.
 
-## Podsumowanie
+## Заключение
 
-Baza danych StreetBall App została zaprojektowana i zaimplementowana zgodnie z wymaganiami funkcjonalnymi. Zawiera wszystkie niezbędne kolekcje i relacje między nimi, co umożliwia efektywne zarządzanie danymi aplikacji.
+База данных StreetBall App была спроектирована и реализована в соответствии с функциональными требованиями. Она содержит все необходимые коллекции и связи между ними, что позволяет эффективно управлять данными приложения.
 
-Przeprowadzone operacje i zapytania potwierdzają, że baza danych spełnia wszystkie wymagania dotyczące:
-- Przechowywania informacji o użytkownikach, boiskach, grach i powiadomieniach
-- Wyszukiwania i filtrowania danych według różnych kryteriów
-- Analizy danych za pomocą agregacji
-- Aktualizacji i modyfikacji danych
-- Zabezpieczenia bazy przez system uprawnień użytkowników
-- Tworzenia kopii zapasowych i eksportu danych
+Проведенные операции и запросы подтверждают, что база данных отвечает всем требованиям относительно:
+- Хранения информации о пользователях, площадках, играх и уведомлениях
+- Поиска и фильтрации данных по различным критериям
+- Анализа данных с помощью агрегации
+- Обновления и модификации данных
+- Защиты базы через систему прав пользователей
+- Создания резервных копий и экспорта данных
 
-Struktura bazy jest elastyczna i pozwala na przyszłe rozszerzenie o dodatkowe sporty oraz funkcjonalności, zgodnie z wymaganiami projektu.
+Структура базы является гибкой и позволяет будущее расширение на дополнительные виды спорта и функциональность, в соответствии с требованиями проекта.
