@@ -5,13 +5,6 @@
 ## Projekt bazy danych NoSQL MongoDB
 
 **Autor:** Vladyslav Liulka  
-**Grupa:** IO 6.8
-
----
-
-**Wydział Elektrotechniki i Informatyki**  
-**Politechnika Lubelska**  
-**Kierunek: Informatyka**
 
 ---
 
